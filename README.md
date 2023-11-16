@@ -13,53 +13,57 @@ Whereding은 결혼을 준비하는 부부들을 위한 편리하고 효율적�
 
 <br><br>
 ## 📆 개발 기간 
-2023.07.01 - 2023. 09.04
+2023.09.19 ~ 2023.11.07
 
 
 <br><br>
 ## 👨‍👩‍👧‍👦 멤버 구성 
 - 윤재성 (https://github.com/jeasung90)
   
-   &nbsp;&nbsp;&nbsp; - 회원가입 및 로그인
+   &nbsp;&nbsp;&nbsp; -  카드결제 및 취소
   
-   &nbsp;&nbsp;&nbsp; -  아이디 비밀번호 찾기
+   &nbsp;&nbsp;&nbsp; -  메인페이지 모달
   
-   &nbsp;&nbsp;&nbsp; -  DB설계 및 관리
+   &nbsp;&nbsp;&nbsp; -  상담예약 & 답례품구매 내역
+
+   &nbsp;&nbsp;&nbsp; -  고객센터(공지사항,Q&A,협력업체신청)
   
-- 류지완 (https://github.com/Rjiwan)
+- 이원종 (https://github.com/lwjong0210)
   
-    &nbsp;&nbsp;&nbsp; - 메인페이지
+    &nbsp;&nbsp;&nbsp; - 메인 검색바
 
-    &nbsp;&nbsp;&nbsp; - 카테고리페이지
+    &nbsp;&nbsp;&nbsp; - 사이드바(답례품 장바구니,예약 장바구니)
 
-    &nbsp;&nbsp;&nbsp; - 상품상세페이지
+    &nbsp;&nbsp;&nbsp; - 답례품 장바구니, 예약 장바구니
 
-    &nbsp;&nbsp;&nbsp; -  검색페이지
+    &nbsp;&nbsp;&nbsp; - 메인페이지(헤더,푸터)
+
+    &nbsp;&nbsp;&nbsp; - 웨딩업체 목록 및 상세페이지
+
+    &nbsp;&nbsp;&nbsp; - 관리자페이지 일부(회원정보 CRUD)
   
-- 윤관현 (https://github.com/YoonTarget)
+- 양관우 (https://github.com/yangkwannwoo1)
 
-   &nbsp;&nbsp;&nbsp; - 마이페이지
+    &nbsp;&nbsp;&nbsp; - 회원기능(로그인, 회원가입, 아이디&비밀번호 찾기)
   
-    &nbsp;&nbsp;&nbsp; - 상품결제페이지
+    &nbsp;&nbsp;&nbsp; - 답례품(목록페이지, 상세페이지)
 
-    &nbsp;&nbsp;&nbsp; - 예매내역
-
-    &nbsp;&nbsp;&nbsp; -  좋아요 & 리뷰 기능
-
+    &nbsp;&nbsp;&nbsp; - 관리자페이지 일부(협력업체신청,리뷰관리)
 
 <br><br><br>
 ## ⚙️개발 환경 
 
-- 개발 툴 : eclipse , VScode
-- Server : Apach Tomcat 9.0 
+- 개발 툴 : sts , VScode , Oracle Sql Developer
+- Server : Apach Tomcat 9.0
+- FrameWork/ Library : Spring, Mybatis, jQuery, Maven
 - DB : Oracle DB
 - 형상 관리 : GIt, GitHub, SourceTree
 
 <br><br>
 
 ## 🌈 기술 스택 
-- FrontEnd : HTML5, JavaScript, JQuery , AJax , CSS3
-- BackEnd : Java 11, JSP & Servlet
+- FrontEnd : HTML5, JavaScript, JQuery, CSS3, Bootstrap
+- BackEnd : Java 11, JSP & Servlet , REST API , AJax 
   
 
 <br><br>
@@ -68,10 +72,11 @@ Whereding은 결혼을 준비하는 부부들을 위한 편리하고 효율적�
  ## 🔧주요기능
 <div style="display:flex; flex-direction:row;">
 
- - 메인화면
- - 상품검색기능
- - 마이페이지
+ - 메인화면 (검색기능)
  - 상품 상세페이지
+ - 마이페이지
+ - 상품 결제 및 취소
+ - 장바구니 / 예약
  - 회원가입 및 로그인
  
 </div>
@@ -80,7 +85,10 @@ Whereding은 결혼을 준비하는 부부들을 위한 편리하고 효율적�
 ## 🎬프로젝트 구현
 
 ### 🦄윤재성
-
+카드결제 및 취소
+메인페이지 모달
+상담예약 & 답례품구매 내역
+고객센터(공지사항,Q&A,협력업체신청)
 #### 😊 회원가입 및 로그인 😊
 &nbsp;&nbsp;&nbsp; - Ajax와 정규표현식을 이용한 아이디 및 비밀번호 입력 후 회원가입 및 로그인
 ![회원가입 및 로그인](https://github.com/inumsiki/ticketDdakdae/assets/134485808/ebacf901-1728-4f48-8928-133ce50649d7)
