@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+
+<mapper namespace="giftMapper">
+	
+	<resultMap type="Gift" id="giftResult">
+		<result column="gift_no" property="giftNo"/>
+		<result column="category_no" property="categoryNo"/>
+		<result column="category_item" property="categoryItem"/>
+		<result column="gift_name" property="giftName"/>
+		<result column="gift_content" property="giftContent"/>
+		<result column="gift_price" property="giftPrice"/>
+		<result column="count" property="count"/>
+		<result column="img_path" property="imgPath"/>
+		<result column="img_1" property="img1"/>
+		<result column="img_2" property="img2"/>
+		<result column="img_3" property="img3"/>
+		<result column="status" property="status"/>
+		<result column="great_count" property="greatCount"/>
+		
+		
+		
+	</resultMap>
+	
+	<resultMap type="GiftCategory" id="giftCategoryResult">
+		<result column="category_no" property="categoryNo"/>
+		<result column="category_item" property="categoryItem"/>
+	</resultMap>
+	<resultMap type="GiftHistory" id="giftHistoryResult">
+		<result column="GHIS_NO" property="ghisNo"/>
+		<result column="GIFT_NO" property="giftNo"/>
+		<result column="USER_NO" property="userNo"/>
+		<result column="BUYMETHOD_NO" property="butMethodNo"/>
+		<result column="PAYMENT_NO" property="paymentNo"/>
+		<result column="PIECE" property="piece"/>
+		<result column="CREATE_DATE" property="createDate"/>
+		<result column="GIFT_NAME" property="giftName"/>
+		<result column="GIFT_CONTENT" property="giftContent"/>
+		<result column="IMG_1" property="img1"/>
+		<result column="IMG_PATH" property="imgPath"/>
+		<result column="GRIV_NO" property="grivNo"/>
+		<result column="IMP_UID" property="impUid"/>
+	</resultMap>
+	
+	
+	<!-- <select id="selectGiftList" resultMap="giftResult">
+	select 
+        gift_no
+       ,category_no
+       ,category_item
+       ,gift_name
+       ,gift_content
+       ,gift_price
+       ,count
+       ,img_path as "img_path"
+       ,img_1 as "img_1"
+       ,img_2 as "img_2"
+       ,img_3 as "img_3"
+
+      from gift g
+      left outer join product_img p on g.gift_no=p.product_no
+      join gift_category using(category_no)
+    where count>0
+      and status = 'Y'
+	    	<if test="categoryNo != 0">
+	    		and category_no = #{categoryNo}
+	    	</if>
+	    	order by gift_no desc
+	</select> -->
+	
+	<select id="selectGiftList" resultMap="giftResult">
+	SELECT
+    g.gift_no,
+    c.category_no,
+    c.category_item,
+    g.gift_name,
+    g.gift_content,
+    g.gift_price,
+    g.count AS "count",
+    p.img_path AS "img_path",
+    p.img_1 AS "img_1",
+    p.img_2 AS "img_2",
+    p.img_3 AS "img_3",
+    COUNT(t.great_no) AS great_count
+    
+	FROM
+	    gift g
+	LEFT OUTER JOIN
+	    product_img p ON g.gift_no = p.product_no
+	JOIN gift_category c ON g.category_no = c.category_no
+	LEFT OUTER JOIN
+	    great t ON g.gift_no = t.great_no
+	WHERE
+	    g.count > 0
+	    AND status = 'Y'
+	    <if test="categoryNo != 0">
+		    		and category_no = #{categoryNo}
+		</if>
+	GROUP BY
+	    g.gift_no, c.category_no, c.category_item, g.gift_name, g.gift_content, g.gift_price, g.count, p.img_path, p.img_1, p.img_2, p.img_3
+	ORDER BY
+    g.gift_no ASC
+	</select>
+	
+	
+	<select id="selectListCount" resultType="_int">
+		select count(*)
+		  from gift
+	</select>
+	
+	<select id="selectCategoryList" resultMap="giftCategoryResult">
+		select
+		 		category_no
+		 	   ,category_item
+		  from gift_category
+	</select>
+	
+	<select id="categorySearch" resultMap="giftResult">
+		select 
+        gift_no
+       ,category_no
+       ,category_item
+       ,gift_name
+       ,gift_content
+       ,gift_price
+       ,count
+       ,img_path as "img_path"
+       ,img_1 as "img_1"
+       ,img_2 as "img_2"
+       ,img_3 as "img_3"
+
+      from gift g
+      left outer join product_img p on g.gift_no=p.product_no
+      join gift_category using(category_no)
+      
+    where count>0 
+      and category_no = #{categoryNo}
+      and status='Y'      
+	</select>
+	
+	<insert id="insertGift">
+		insert all	 
+	 into gift(
+		  		gift_no
+		  	   ,category_no
+		  	   ,gift_name
+		  	   ,gift_content
+		  	   ,gift_price
+		  	   ,count
+		  	   ,status
+		  	   )
+		values(
+				'G'||seq_gbo.nextval
+				,#{categoryNo}
+				,#{giftName}
+				,#{giftContent}
+				,#{giftPrice}
+				,#{count}
+				,'Y'
+			  )
+      <if test="imgPath != null">
+      into product_img(
+      					 img_no
+      					,product_no
+      					,img_1
+      					,img_2
+      					,img_3
+      					,img_path
+      				  )
+      			values(
+      					 seq_img.nextval
+      					,'G'||seq_gbo.currval
+      					,#{img1}
+      					,#{img2}
+      					,#{img3}
+      					,#{imgPath}
+      			)
+      </if>
+      select 1 from dual
+	</insert>
+
+	<select id="giftHistoryList" resultMap="giftHistoryResult">
+		select 
+		       GHIS_NO
+		     , GIFT_NO
+		     , USER_NO
+		     , BUYMETHOD_NO
+		     , to_char(h.CREATE_DATE, 'YYYY-MM-DD') as "h.CREATE_DATE"
+		     , GIFT_PRICE
+		     , GIFT_NAME
+		     , GIFT_CONTENT
+		     , piece
+		     , IMG_1
+		     , IMG_PATH
+		     , GRIV_NO
+		  from gift_history h
+		  join gift using (GIFT_NO)
+		  left JOIN product_img ON (GIFT_NO = PRODUCT_NO)
+		  left join gift_review using (GHIS_NO)
+		 where user_no = #{userNo}
+		  order 
+		  	 by GHIS_NO desc
+	</select>
+	<insert id="giftReview">
+	 INSERT 
+	   into gift_review
+	      (
+	        GRIV_NO
+	      , GHIS_NO
+	      , GRIV_CONTENT
+	      , GRIV_GRADE
+	      )
+	 values
+	      (
+	        seq_griv.nextval
+	      , #{ghisNo}
+	      , #{grivContent}
+	      , #{grivGrade}
+	      )
+	</insert>
+	<insert id="giftReviewImg">
+		insert
+		  into gift_img
+		     (
+		       REVIEW_NO
+		     , G_ORIGIN_NAME
+		     , G_CHANGE_NAME
+		     , G_FILE_PATH
+		     )
+		values
+		     (
+		       seq_griv.CURRVAL
+		     , #{originName}
+		     , #{changeName}
+		     , #{filePath}
+		     )
+	</insert>
+	
+	<select id="selectGiftDetail" resultMap="giftResult">
+<!-- 	select 
+        gift_no
+       ,category_no
+       ,category_item
+       ,gift_name
+       ,gift_content
+       ,gift_price
+       ,count
+       ,img_path as "img_path"
+       ,img_1 as "img_1"
+       ,img_2 as "img_2"
+       ,img_3 as "img_3"
+
+      from gift g
+      left outer join product_img p on g.gift_no=p.product_no
+      join gift_category using(category_no)
+    where count>0    	
+      and status='Y'
+    and gift_no = #{giftNo} -->
+    
+    SELECT
+    g.gift_no,
+    c.category_no,
+    c.category_item,
+    g.gift_name,
+    g.gift_content,
+    g.gift_price,
+    g.count AS "count",
+    p.img_path AS "img_path",
+    p.img_1 AS "img_1",
+    p.img_2 AS "img_2",
+    p.img_3 AS "img_3",
+    COUNT(t.great_no) AS great_count
+    
+	FROM
+	    gift g
+	LEFT OUTER JOIN
+	    product_img p ON g.gift_no = p.product_no
+	JOIN gift_category c ON g.category_no = c.category_no
+	LEFT OUTER JOIN
+	    great t ON g.gift_no = t.great_no
+	WHERE
+	    g.count > 0
+	    AND status = 'Y'
+	    and gift_no = #{giftNo}
+	GROUP BY
+	    g.gift_no, c.category_no, c.category_item, g.gift_name, g.gift_content, g.gift_price, g.count, p.img_path, p.img_1, p.img_2, p.img_3
+	ORDER BY
+    g.gift_no ASC
+	</select>
+	
+	<update id="deleteGift">
+		update gift
+		   set status = 'N'
+		 where gift_no = #{giftNo}
+	</update>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</mapper>
+
+
+
+
+

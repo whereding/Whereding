@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+
+<mapper namespace="hallMapper">
+	<resultMap type="Hall" id="hallResult">
+		<result column="h_code" property="code"/>
+		<result column="h_enterprise" property="enterprise"/>
+		<result column="h_name" property="name"/>
+		<result column="h_detail" property="detail"/>
+		<result column="h_seat" property="seat"/>
+		<result column="h_rental" property="rental"/>
+		<result column="h_restaurant_seat" property="hallSeat"/>
+		<result column="h_meal" property="meal"/>
+		<result column="h_start_time" property="startTime"/>
+		<result column="h_end_time" property="endTime"/>
+		<result column="h_phone" property="phone"/>
+		<result column="h_address" property="address"/>
+		<result column="h_unit_time" property="unitTime"/>
+		<result column="h_week_open" property="weekOpen"/>
+		<result column="tag_content" property="tagContent"/>
+		<result column="status" property="status"/>
+		<result column="img_1" property="img1"/>
+		<result column="img_2" property="img2"/>
+		<result column="img_3" property="img3"/>
+		<result column="img_path" property="imgPath"/>
+		<result column="great_count" property="greatCount"/>
+	</resultMap>
+	
+	<resultMap type="HashTag" id="hashTagResult">
+		<result column="product_no" property="productNo"></result>
+		<result column="tag_content" property="tagContent"></result>
+	</resultMap>
+	
+	<resultMap type="ProductCollectionReview" id="ProductCollectionReviewResult">
+		<result column="review_no" property="reviewNo"/>
+		<result column="cs_no" property="csNo"/>
+		<result column="rv_content" property="rvContent"/>
+		<result column="rv_score" property="rvScore"/>
+		<result column="create_date" property="createDate"/>
+		<result column="user_name" property="userName"/>
+		<result column="origin_name" property="originName"/>
+		<result column="change_name" property="changeName"/>
+		<result column="img_path" property="imgPath"/>
+	</resultMap>
+	
+	
+	<select id="selectListCount" resultType="_int">
+		select 
+				count(*)
+	 	   from hall
+  	</select>
+  	
+  	<select id="selectList" resultMap="hallResult">
+		select 
+		       H_CODE
+		     , H_ENTERPRISE
+		     , H_ADDRESS
+		     , H_NAME
+		     , H_RENTAL
+		     , H_SEAT
+		     , H_MEAL
+		     , H_RESTAURANT_SEAT
+		     , img_path || img_1 as img_path
+		     , tag_content
+             , count(great_no) great_count
+		  from hall
+		  left join product_img i on (h_code = i.product_no)
+		  left join tag t on (h_code = t.product_no)
+          left join great on (h_code = great_no)
+         where h_status = 'Y'
+          group by H_CODE
+          	  , H_ENTERPRISE
+          	  , H_ADDRESS
+          	  , H_NAME
+          	  , H_RENTAL
+          	  , H_SEAT
+          	  , H_MEAL
+          	  , H_RESTAURANT_SEAT
+          	  , img_path || img_1 
+          	  , tag_content
+  	</select>
+  	
+  	<insert id="insertHall">
+		insert 
+		  into hall
+		  (
+		    H_CODE
+		  , H_ENTERPRISE
+		  , H_NAME
+		  , H_DETAIL
+		  , H_SEAT
+		  , H_RENTAL
+		  , H_RESTAURANT_SEAT
+		  , H_MEAL
+		  , H_START_TIME
+		  , H_END_TIME
+		  , H_PHONE
+		  , H_ADDRESS
+		  , H_UNIT_TIME
+		  , H_WEEK_OPEN
+		  )
+	 values
+	 	  (
+	 	  	'H'||SEQ_HNO.nextval
+	 	  , #{enterprise}
+	 	  , #{name}
+	 	  , #{detail}
+	 	  , #{seat}
+	 	  , #{rental}
+	 	  , #{hallSeat}
+	 	  , #{meal}
+	 	  , #{startTime}
+	 	  , #{endTime}
+	 	  , #{phone}
+	 	  , #{address}
+	 	  , #{unitTime}
+	 	  , #{weekOpen}
+	 	  )
+	</insert>
+	
+	<insert id="insertTag">
+		insert 
+		  into tag
+		  (
+		  	product_no
+		  , tag_content
+		  ) 
+		  values
+		  (
+		    'H' ||SEQ_HNO.CURRVAL
+		  , #{ tagContent }
+		  )
+	</insert>
+	
+	<insert id="insertFile">
+		insert 
+		  into product_img
+		  (
+		    img_no
+		  , product_No
+		  , img_Path
+		  , img_1
+		  , img_2
+		  , img_3
+		  )
+		  values
+		  (
+		    seq_img.nextval
+		  , 'H' ||SEQ_HNO.CURRVAL
+		  , #{ imgPath }
+		  , #{ img1 }
+		  , #{ img2 }
+		  , #{ img3 }
+		  )
+	</insert>
+	
+	<select id="selectBoard" resultMap="hallResult">
+		select 
+			   H_CODE
+			 , H_ENTERPRISE
+			 , H_NAME
+			 , H_DETAIL
+			 , H_SEAT
+			 , H_RENTAL
+			 , H_RESTAURANT_SEAT
+			 , H_MEAL
+			 , H_START_TIME
+			 , H_END_TIME
+			 , H_PHONE
+			 , H_ADDRESS
+			 , H_UNIT_TIME
+			 , H_WEEK_OPEN
+		     , IMG_1
+             , IMG_2
+             , IMG_3
+             , IMG_PATH
+		  from hall
+		  left join product_img i on (h_code = i.product_no) 
+		  left join tag t on (t.product_no = i.product_no) 
+		 where h_code = #{ hno }
+		   and H_STATUS = 'Y'
+	</select>
+	
+	
+	<update id="deletehall" parameterType="hashMap">
+		update hall 
+		   set h_status = 'N'
+		 where h_code = #{ hno }
+	</update>
+	
+	<select id="selectReviewList" resultMap="ProductCollectionReviewResult">
+		select
+			   r.review_no
+             , r.cs_no
+			 , rv_content
+             , rv_score
+			 , to_char(create_date,'YYYY-MM-DD') as "create_date"
+             , user_name
+             , cs_change_name as change_name
+             , cs_file_path || cs_origin_name as filepath
+          from review r
+          join consulting c on (r.cs_no = c.cs_no)
+          join member m on (c.user_no = m.user_no)
+          left join consulting_img i on (r.review_no = i.review_no)
+		 where product_no = #{ hno }
+		 order by review_no desc
+	</select>
+	
+	
+  		
+	
+</mapper>

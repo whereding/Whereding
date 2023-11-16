@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+
+<mapper namespace="productCollectionMapper">
+	<resultMap type="ProductCollection" id="ProductCollectionResult">
+		<result column="code" property="code"/>
+		<result column="enterprise" property="enterprise"/>
+		<result column="detail" property="detail"/>
+		<result column="price" property="price"/>
+		<result column="start_date" property="startDate"/>
+		<result column="end_date" property="endDate"/>
+		<result column="phone" property="phone"/>
+		<result column="address" property="address"/>
+		<result column="unit_time" property="unitTime"/>
+		<result column="week_open" property="weekOpen"/>
+		<result column="status" property="status"/>
+		<result column="img_1" property="img1"/>
+		<result column="img_2" property="img2"/>
+		<result column="img_3" property="img3"/>
+		<result column="img_path" property="imgPath"/>
+		<result column="tag_content" property="tagContent"/>
+		<result column="great_count" property="greatCount"/>
+	</resultMap>
+	
+		<resultMap type="ProductCollectionReview" id="ProductCollectionReviewResult">
+		<result column="review_no" property="reviewNo"/>
+		<result column="cs_no" property="csNo"/>
+		<result column="rv_content" property="rvContent"/>
+		<result column="rv_score" property="rvScore"/>
+		<result column="create_date" property="createDate"/>
+		<result column="user_name" property="userName"/>
+		<result column="origin_name" property="originName"/>
+		<result column="change_name" property="changeName"/>
+		<result column="filepath" property="filePath"/>
+	</resultMap>
+	
+	<resultMap type="HashTag" id="hashTagResult">
+		<result column="product_no" property="productNo"></result>
+		<result column="tag_content" property="tagContent"></result>
+	</resultMap>
+	
+	
+	
+	<select id="selectListCount" resultType="_int">
+		select 
+				count(*)
+	 	   from 
+	 	   <choose>
+	 	   		<when test="category eq 'Studio'">
+	 	  			studio
+	 	  			where s_status = 'Y'
+	 	   		</when>
+	 	   		<when test="category eq 'Dress'">
+	 	   			 dress
+	 	   			 where d_status = 'Y'
+	 	   		</when>
+	 	   		<otherwise>
+	 	   			 makeup
+	 	   			 where m_status = 'Y'
+	 	   		</otherwise>
+	 	   </choose>
+  	</select>
+  	
+  	<select id="selectList" resultMap="ProductCollectionResult">
+	 	   <choose>
+	 	   		<when test="category eq 'Studio'">
+				    select 
+					      s_code as code
+					     ,s_enterprise as enterprise
+					     ,s_detail as detail
+					     ,s_price as price
+					     ,s_start_date as start_date
+					     ,s_end_date as end_date
+					     ,s_phone as phone
+					     ,s_address as address
+					     ,s_unit_time as unit_time
+					     ,s_week_open as week_open
+					     ,tag_content
+					     ,img_path || img_1 as img_path 
+					     ,count(great_no) great_count
+					  from studio
+					  left join tag t on (s_code = t.product_no)
+					  left join product_img i on (s_code = i.product_no)
+					  left join great on (s_code = great_no)
+					where s_status = 'Y'
+                    group by S_CODE, S_ENTERPRISE, S_DETAIL, S_PRICE, S_START_DATE, S_END_DATE, S_PHONE, S_ADDRESS, S_UNIT_TIME, S_WEEK_OPEN, TAG_CONTENT, IMG_PATH || IMG_1 
+	 	   		</when>
+	 	   		<when test="category eq 'Dress'">
+				    select 
+					      d_code as code
+					     ,d_enterprise as enterprise
+					     ,d_detail as detail
+					     ,d_price as price
+					     ,d_start_date as start_date
+					     ,d_end_date as end_date
+					     ,d_phone as phone
+					     ,d_address as address
+					     ,d_unit_time as unit_time
+					     ,d_week_open as week_open
+					     ,tag_content
+					     ,img_path || img_1 as img_path 
+					  from dress
+					  left join tag on (d_code = product_no) 
+					  left join product_img i on (d_code = i.product_no)
+					where d_status = 'Y'
+	 	   		</when>
+	 	   		<otherwise>
+				    select 
+					      m_code as code
+					     ,m_enterprise as enterprise
+					     ,m_detail as detail
+					     ,m_price as price
+					     ,m_start_date as start_date
+					     ,m_end_date as end_date
+					     ,m_phone as phone
+					     ,m_address as address
+					     ,m_unit_time as unit_time
+					     ,m_week_open as week_open
+					     ,tag_content
+					     ,img_path || img_1 as img_path 
+					  from makeup
+					  left join tag on (m_code = product_no) 
+					  left join product_img i on (m_code = i.product_no)
+					where m_status = 'Y'
+	 	   		</otherwise>
+	 	   </choose>
+  	</select>
+  	
+	<select id="selectBoard" resultMap="ProductCollectionResult">
+ 	   <choose>
+ 	   		<when test="category eq 'Studio'">
+				select 
+				       s_code as code
+				     , s_enterprise as enterprise
+				     , s_detail as detail
+				     , s_price as price
+				     , s_start_date as start_date
+				     , s_end_date as end_date
+				     , s_phone as phone
+				     , s_address as address
+				     , s_unit_time as unit_time
+				     , s_week_open as week_open
+				     , img_1
+				     , img_2
+				     , img_3
+				     , img_path
+				     , tag_content
+				  from studio
+				left join product_img p on (s_code = p.product_no)
+				left join tag t on (s_code = t.product_no)
+			   where s_code = #{ cno }
+ 	   		</when>
+ 	   		<when test="category eq 'Dress'">
+				select 
+				       d_code as code
+				     , d_enterprise as enterprise
+				     , d_detail as detail
+				     , d_price as price
+				     , d_start_date as start_date
+				     , d_end_date as end_date
+				     , d_phone as phone
+				     , d_address as address
+				     , d_unit_time as unit_time
+				     , d_week_open as week_open
+				     , img_1
+				     , img_2
+				     , img_3
+				     , img_path
+				     , tag_content
+				  from dress
+				left join product_img p on (d_code = p.product_no)
+				left join tag t on (d_code = t.product_no)
+			   where d_code = #{ cno }
+ 	   		</when>
+ 	   		<otherwise>
+				select 
+				       m_code as code
+				     , m_enterprise as enterprise
+				     , m_detail as detail
+				     , m_price as price
+				     , m_start_date as start_date
+				     , m_end_date as end_date
+				     , m_phone as phone
+				     , m_address as address
+				     , m_unit_time as unit_time
+				     , m_week_open as week_open
+				     , img_1
+				     , img_2
+				     , img_3
+				     , img_path
+				     , tag_content
+				  from makeup
+				left join product_img p on (m_code = p.product_no)
+				left join tag t on (m_code = t.product_no)
+			   where m_code = #{ cno }
+ 	   		</otherwise>
+ 	   </choose>
+  	</select>
+  	
+	<select id="selectReviewList" resultMap="ProductCollectionReviewResult">
+		select
+			   r.review_no
+             , r.cs_no
+			 , rv_content
+             , rv_score
+			 , to_char(create_date,'YYYY-MM-DD') as "create_date"
+             , user_name
+             , cs_change_name as change_name
+             , cs_file_path || cs_origin_name as filepath
+          from review r
+          join consulting c on (r.cs_no = c.cs_no)
+          join member m on (c.user_no = m.user_no)
+          left join consulting_img i on (r.review_no = i.review_no)
+		 where product_no = #{ cno }
+		 order by review_no desc
+	</select>
+	
+	<insert id="insertProductCollection">
+ 	   <choose>
+ 	   		<when test="category eq 'Studio'">
+				insert 
+				  into studio
+				  (
+				    S_CODE
+				  , S_ENTERPRISE
+				  , S_DETAIL
+				  , S_price
+				  , S_START_DATE
+				  , S_END_DATE
+				  , S_PHONE
+				  , S_ADDRESS
+				  , S_UNIT_TIME
+				  , S_WEEK_OPEN
+				  )
+			 values
+			 	  (
+			 	  'S'||SEQ_SNO.NEXTVAL
+ 	   		</when>
+ 	   		<when test="category eq 'Dress'">
+				insert 
+				  into Dress
+				  (
+				    D_CODE
+				  , D_ENTERPRISE
+				  , D_DETAIL
+				  , D_price
+				  , D_START_DATE
+				  , D_END_DATE
+				  , D_PHONE
+				  , D_ADDRESS
+				  , D_UNIT_TIME
+				  , D_WEEK_OPEN
+				  )
+			 values
+			 	  (
+			 	  'D'||SEQ_DNO.NEXTVAL
+ 	   		</when>
+ 	   		<otherwise>
+				insert 
+				  into makeup
+				  (
+				    M_CODE
+				  , M_ENTERPRISE
+				  , M_DETAIL
+				  , M_price
+				  , M_START_DATE
+				  , M_END_DATE
+				  , M_PHONE
+				  , M_ADDRESS
+				  , M_UNIT_TIME
+				  , M_WEEK_OPEN
+				  )
+			 values
+			 	  (
+			 	  'M'||SEQ_MKNO.NEXTVAL
+ 	   		</otherwise>
+ 	   </choose>
+	 	  , #{enterprise}
+	 	  , #{detail}
+	 	  , #{price}
+	 	  , #{startDate}
+	 	  , #{endDate}
+	 	  , #{phone}
+	 	  , #{address}
+	 	  , #{unitTime}
+	 	  , #{weekOpen}
+	 	  )
+  	</insert>
+  	
+	<insert id="insertTag">
+		insert 
+		  into tag
+		  (
+		  	product_no
+		  , tag_content
+		  ) 
+		  values
+		  (
+ 	   <choose>
+ 	   		<when test="category eq 'Studio'">
+			    'S' ||SEQ_SNO.CURRVAL
+ 	   		</when>
+ 	   		<when test="category eq 'Dress'">
+			    'D' ||SEQ_DNO.CURRVAL
+ 	   		</when>
+ 	   		<otherwise>
+			    'M' ||SEQ_MKNO.CURRVAL
+ 	   		</otherwise>
+ 	   </choose>
+		  , #{ tagContent }
+		  )
+  	</insert>
+	<insert id="insertFile">
+		insert 
+		  into product_img
+		  (
+		    img_no
+		  , product_No
+		  , img_Path
+		  , img_1
+		  , img_2
+		  , img_3
+		  )
+		  values
+		  (
+		    seq_img.nextval
+ 	   <choose>
+ 	   		<when test="category eq 'Studio'">
+			  , 'S' ||SEQ_SNO.CURRVAL
+ 	   		</when>
+ 	   		<when test="category eq 'Dress'">
+			  , 'D' ||SEQ_DNO.CURRVAL
+ 	   		</when>
+ 	   		<otherwise>
+			  , 'M' ||SEQ_MKNO.CURRVAL
+ 	   		</otherwise>
+ 	   </choose>
+		  , #{ imgPath }
+		  , #{ img1 }
+		  , #{ img2 }
+		  , #{ img3 }
+		  )
+  	</insert>
+  	
+  	<update id="deleteCollection">
+		update studio
+ 	   <choose>
+ 	   		<when test="category eq 'Studio'">
+	  		   set s_status = 'N'
+		 	 where s_code = #{ cno }
+ 	   		</when>
+ 	   		<when test="category eq 'Dress'">
+	  		   set d_status = 'N'
+		 	 where d_code = #{ cno }
+ 	   		</when>
+ 	   		<otherwise>
+	  		   set m_status = 'N'
+		 	 where m_code = #{ cno }
+ 	   		</otherwise>
+ 	   </choose> 
+  	</update>
+  	
+  	
+	
+</mapper>

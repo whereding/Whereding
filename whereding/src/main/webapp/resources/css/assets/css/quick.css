@@ -1,0 +1,203 @@
+.quick {
+    background-color: #DFCDBF;
+    text-align: center;
+    width: 86px;
+    border: 1px solid black;
+    border-radius: 10px;
+    position: fixed;
+    font-size: 13px;
+    top: 180px;
+    right: 15px;
+    z-index:999;
+    
+}
+
+.quick * {
+    text-decoration: none;
+}
+
+.quick h4 {
+    margin: 0;
+    font-size: 12px;
+}
+
+.quick .quick_header {
+    padding: 5px;
+}
+
+.quick hr{
+    width: 70px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.quick img{
+    width: 26px;
+}
+
+.quick *{
+    color: black;
+}
+
+.quick i{
+    font-size: 20px;
+}
+
+.quick ul {
+    background-color: white;
+    border: 1px solid;
+    border-radius: 10px;
+    margin: 0px;
+    padding: 0px; 
+    list-style-type: none;
+}
+
+.quick li{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.quick .li_top{
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.quick .li_bottom{
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.quick li:hover{
+    cursor: pointer;
+    background-color: lightgray;
+}
+
+.up_arrow{
+    width: 56px;
+    height: 56px;
+    border-radius: 24px;
+    position: fixed;
+    bottom: 25px;
+    right: 70px;
+    box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.1) 0px 4px 6px, rgba(0, 0, 0, 0.15) 0px 8px 30px;
+    background: linear-gradient(rgb(250, 149, 155) 0%, rgb(250, 160, 149) 100%);
+    z-index: 999;
+}
+
+.up_arrow :hover{
+    cursor: pointer;
+}
+
+.up_arrow img{
+    padding: 20%;
+    width: 100%;
+    height: 100%;
+}
+
+/* 사이드바 */
+.sidebar_menu {
+    position: fixed;
+    width: 25% !important;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.sidebar_menu .close_btn img{
+    height: 25px;
+}
+
+.sidebar_menu h4{
+    margin: 5% 5%;
+}
+
+.sidebar_menu hr{
+    border: 1px solid gray;
+    width: 90%;
+}
+
+.sidebar_menu input{
+    background-color: whitesmoke;
+    border: none;
+}
+
+.sidebar_menu table{
+    width: 90%;
+    margin: 5% 5%;
+    border: none;
+}
+.sidebar_menu *{
+    border: none;
+}
+
+.sidebar_menu img{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+.sidebar_menu .pCount input{
+    text-align: right;
+    width: 30px;
+}
+
+.sidebar_menu i{
+    cursor: pointer;
+}
+
+.sidebar_menu .pImg_area{
+    width: 100px;
+}
+
+/* .sidebar_menu .perPrice_area *{
+    text-align: right;
+} */
+
+.sidebar_menu .per_price{
+    background-color: whitesmoke;
+    border: none;
+    padding: 0;
+}
+
+.total_area{
+    text-align: right;
+}
+
+.basket_item{
+    zoom: 1.5;
+}
+
+.sidebar_menu .btn{
+    float: right;
+    margin: 0% 5%;
+}
+
+.sidebar_menu .finalTotal{
+    text-align: right;
+    margin: 0% 5%;
+}
+
+/* 예약 사이드바 */
+.sidebar_menu .reservation_Total{
+    text-align: right;
+    margin: 0% 5%;
+}
+.reservation_phone{
+    margin-top: 100px;
+    text-align: left;
+}
+
+.reservation_phone h5{
+    padding-top: 10px;
+    padding-left: 5%;
+}
+
+.allCheck{
+    margin-left: 5%;
+}
+
+.side_schedule table span{
+    font-size: small;
+}
+/* tbody td{
+    padding-left: 20px;
+} */

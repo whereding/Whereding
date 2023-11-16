@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "mybatis-3-config.dtd" >
+<configuration>
+	
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+	</settings>
+	
+	<!-- 10/19 재성 추가 -->
+	
+	<typeAliases>
+		<typeAlias type="com.kh.whereding.board.model.vo.Notice" alias="Notice"/>
+		<typeAlias type="com.kh.whereding.board.model.vo.Qna" alias="Qna"/>
+		<typeAlias type="com.kh.whereding.board.model.vo.CollaboRation" alias="CollaboRation"/>
+		<typeAlias type="com.kh.whereding.member.model.vo.Member" alias="Member"/>
+		<typeAlias type="com.kh.whereding.member.model.vo.Consulting" alias="Consulting"/>
+		<typeAlias type="com.kh.whereding.member.model.vo.ConsultingReviewImg" alias="ConsultingReviewImg"/>
+		<typeAlias type="com.kh.whereding.member.model.vo.Review" alias="Review"/>
+		<typeAlias type="com.kh.whereding.product.model.vo.Dress" alias="Dress"/>
+		<typeAlias type="com.kh.whereding.product.model.vo.Hall" alias="Hall"/>
+		<typeAlias type="com.kh.whereding.product.model.vo.Makeup" alias="Makeup"/>
+		<typeAlias type="com.kh.whereding.product.model.vo.Studio" alias="Studio"/>		
+		<typeAlias type="com.kh.whereding.product.model.vo.ProductCollection" alias="ProductCollection"/>		
+		<typeAlias type="com.kh.whereding.product.model.vo.ProductCollectionReview" alias="ProductCollectionReview"/>		
+		<typeAlias type="com.kh.whereding.product.model.vo.Reservation" alias="Reservation"/>		
+		<typeAlias type="com.kh.whereding.gift.model.vo.Gift" alias="Gift"/>
+		<typeAlias type="com.kh.whereding.gift.model.vo.GiftCategory" alias="GiftCategory"/>			
+		<typeAlias type="com.kh.whereding.gift.model.vo.GiftHistory" alias="GiftHistory"/>				
+		<typeAlias type="com.kh.whereding.common.model.vo.HashTag" alias="HashTag"/>				
+		<typeAlias type="com.kh.whereding.common.model.vo.Attachment" alias="Attachment"/>				
+		<typeAlias type="com.kh.whereding.common.model.vo.Great" alias="Great"/>				
+		<typeAlias type="com.kh.whereding.basket.model.vo.Basket" alias="Basket"/>
+		<typeAlias type="com.kh.whereding.coupon.model.vo.Coupon" alias="Coupon"/>
+		<typeAlias type="com.kh.whereding.admin.model.vo.Visit" alias="Visit"/>
+		<typeAlias type="com.kh.whereding.reservationBasket.model.vo.ReservationBasket" alias="ReservationBasket"/>				
+		<typeAlias type="com.kh.whereding.admin.model.vo.Review" alias="AdminReview"/>					
+		
+		
+						
+	</typeAliases>
+	<!-- 유의사항 : 미리등록해두려면 해당 클래스가 진짜 존재하고 있는 상태여야됨 -->
+	
+	<mappers>
+		<mapper resource="/mappers/board-mapper.xml"/>
+		<mapper resource="/mappers/member-mapper.xml"/>
+		<mapper resource="/mappers/main-mapper.xml"/>
+		<mapper resource="/mappers/gift-mapper.xml"/>		
+		<mapper resource="/mappers/hall-mapper.xml"/>
+		<mapper resource="/mappers/productCollection-mapper.xml"/>
+		<mapper resource="/mappers/common-mapper.xml"/>
+		<mapper resource="/mappers/basket-mapper.xml"/>
+		<mapper resource="/mappers/adminMember-mapper.xml"/>
+		<mapper resource="/mappers/adminGift-mapper.xml"/>
+		<mapper resource="/mappers/adminBoard-mapper.xml"/>
+		<mapper resource="/mappers/adminVisit-mapper.xml"/>
+		<mapper resource="/mappers/adminCollabo-mapper.xml"/>
+		<mapper resource="/mappers/reservationBasket-mapper.xml"/>
+		<mapper resource="/mappers/adminProduct-mapper.xml"/>
+	</mappers>
+	<!-- 유의사항 : 미리 등록해두려면 해당 mapper 파일이 진짜 존재하고 있는 상태여야됨(뿐만 아니라 naemspace 까지도 지정 되어 있어야 한다.) -->
+	
+	<!-- 10/19 재성 추가 끝 -->
+	
+	
+	
+</configuration>
