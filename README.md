@@ -120,22 +120,11 @@ Whereding은 결혼을 준비하는 부부들을 위한 편리하고 효율적�
 
 
 <br><br>
-#### 😊 카테고리 😊
+#### 😊 목록 및 상세 페이지 😊
 
-&nbsp;&nbsp;&nbsp; - 카테고리별 페이지
+&nbsp;&nbsp;&nbsp; - 제품 카테고리별 목록 및 상세페이지
 
-![카테고리](https://github.com/inumsiki/ticketDdakdae/assets/134485808/8a4ead5a-5b07-4a67-a68f-a77aea8a2df8)
-<br><br>
-
-<br><br>
-#### 😊 추천상품조회 😊
-&nbsp;&nbsp;&nbsp; - 이용자 관심태그별 인기상품을 동적으로 조회해 추천
-
- - 로그인 전 페이지
-![로그인 전 메인](https://github.com/inumsiki/ticketDdakdae/assets/134485808/201dd60a-19be-4be3-bc17-a3d831bc7f54)
-<br><br>
- - 로그인 후 페이지
-![로그인 후 메인](https://github.com/inumsiki/ticketDdakdae/assets/134485808/ce94f83d-7730-4226-b385-76ca134f6ee8)
+![목록 및 상세](https://github.com/whereding/Whereding/blob/main/목록%20및%20상세페이지.gif?raw=true)
 
 <br><br>
 ### 🐷윤관현
