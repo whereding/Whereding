@@ -127,35 +127,11 @@ Whereding은 결혼을 준비하는 부부들을 위한 편리하고 효율적�
 ![목록 및 상세](https://github.com/whereding/Whereding/blob/main/목록%20및%20상세페이지.gif?raw=true)
 
 <br><br>
-### 🐷윤관현
+#### 😊 답례품 장바구니 😊
 
-#### 😊 마이페이지 😊
-&nbsp;&nbsp;&nbsp; - 회원 정보 조회 및 변경, 탈퇴 기능
+&nbsp;&nbsp;&nbsp; - 장바구니 기능
 
-![마이페이지](https://github.com/inumsiki/ticketDdakdae/assets/134485808/061f062b-4bc1-4bad-9515-1b942f583a15)
-
-
-<br><br>
-#### 😊 티켓예매 😊
-
-&nbsp;&nbsp;&nbsp; - 상품의 정보와 금액을 산정해 티켓 구매 및 예매 내역 조회
-
-![티켓예매](https://github.com/inumsiki/ticketDdakdae/assets/134485808/17fac826-d328-4969-a3f6-76a3436f96a0)
-
-
-<br><br>
-#### 😊 한줄평 😊
-
-&nbsp;&nbsp;&nbsp; - 상영날짜가 지난 예매내역의 한줄평 작성 및 수정 기능
-
-![한줄평](https://github.com/inumsiki/ticketDdakdae/assets/134485808/f7c8fd38-3b32-49cb-a743-e4bfc6a00ca4)
-
-<br><br>
-#### 😊 좋아요 😊
-&nbsp;&nbsp;&nbsp; - ajax를 이용한 좋아요 조회 및 관리 기능
-
-![좋아요](https://github.com/inumsiki/ticketDdakdae/assets/134485808/ba6502d0-19a1-4cd5-af45-2ecc9af28803)
-
+![목록 및 상세](https://github.com/whereding/Whereding/blob/main/목록%20및%20상세페이지.gif?raw=true)
 
 
 
