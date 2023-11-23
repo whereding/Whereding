@@ -146,7 +146,8 @@ Whereding은 결혼을 준비하는 부부들을 위한 편리하고 효율적�
 
 &nbsp;&nbsp;&nbsp; - 관리자 기능으로 가입된 회원의 정보 조회 및 수정
 
-![예약 장바구니]()
+![관리자페이지_회원관리](https://github.com/whereding/Whereding/assets/134485601/2d45f2b9-5d64-45fb-8789-70088c9ac5c4)
+
 
 
 
