@@ -153,16 +153,10 @@ Whereding은 결혼을 준비하는 부부들을 위한 편리하고 효율적�
 <br><br>
 ### 🐵양관우
 
-#### 😊 로그인 및 회원가입 😊 
-&nbsp;&nbsp;&nbsp; - 로그인 및 회원가입 ( 소셜로그인 )
+#### 😊 로그인 및 회원가입 / 아이디&비밀번호 찾기 😊 
+&nbsp;&nbsp;&nbsp; - 로그인 및 회원가입 ( 소셜로그인 ) / 아이디&비밀번호 이메일 인증을 통해서 찾기
 
 ![메인페이지](https://github.com/whereding/Whereding/blob/main/메인검색.gif?raw=true)
-
-<br><br>
-### 😊 아이디 & 비밀번호 찾기 😊
-&nbsp;&nbsp;&nbsp; - 이메일 확인을 통한 비밀번호 찾기
-
-![사이드바](https://github.com/whereding/Whereding/assets/134485601/56ef679e-05ef-4243-ba8b-62e5d3b31c95)
 
 <br><br>
 ### 😊 답례품 목록 및 상세페이지 😊
