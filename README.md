@@ -107,7 +107,8 @@ Whereding은 결혼을 준비하는 부부들을 위한 편리하고 효율적�
 <br><br>
 #### 😊 고객센터 😊
 &nbsp;&nbsp;&nbsp; - 고객센터 기능
-![상담내역 및 구매내역](https://github.com/whereding/Whereding/assets/134485601/51ddb038-f120-4bca-8f6d-70d236519317)
+![고객센터](https://github.com/whereding/Whereding/assets/134485601/2e5c9b33-0a6c-42c9-946b-05923d9f530e)
+
 
 
 
