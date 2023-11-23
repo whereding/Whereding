@@ -90,19 +90,18 @@ Whereding은 결혼을 준비하는 부부들을 위한 편리하고 효율적�
 상담예약 & 답례품구매 내역
 고객센터(공지사항,Q&A,협력업체신청)
 #### 😊 카드결제 및 취소 😊
-&nbsp;&nbsp;&nbsp; - Ajax와 정규표현식을 이용한 아이디 및 비밀번호 입력 후 회원가입 및 로그인
+&nbsp;&nbsp;&nbsp; - KG이니시스 API를 통한 결제, REST API를 통한 결제 취소
 ![카드결제 및 취소](https://github.com/inumsiki/ticketDdakdae/assets/134485601/eca8b346-91ed-4ba8-873d-f897330d4b50)
 
 <br><br>
 #### 😊 메인페이지 모달 😊 
-&nbsp;&nbsp;&nbsp; - 유저의 정보를 이용한 조회로 아이디찾기 및 비밀번호 재설정
-![아이디찾기 및 비밀번호 재설정](https://github.com/inumsiki/ticketDdakdae/assets/134485808/9b9b37e6-6eda-4370-a225-bf2d7231ecae)
+&nbsp;&nbsp;&nbsp; - 접속시 모달 팝업 및 쿠키를 이용한 1주일 안보기 기능
+![아이디찾기 및 비밀번호 재설정](https://github.com/whereding/Whereding/assets/134485601/51ddb038-f120-4bca-8f6d-70d236519317)
 
 <br><br>
 #### 😊 상담예약 & 구매내역 😊
-<details>
-<summary>접기/펼치기</summary>
-<pre> 
+&nbsp;&nbsp;&nbsp; - 유저의 정보를 이용한 조회로 아이디찾기 및 비밀번호 재설정
+![아이디찾기 및 비밀번호 재설정](https://github.com/whereding/Whereding/assets/134485601/51ddb038-f120-4bca-8f6d-70d236519317)
 
 -- 1순위
 -- 공지사항 테이블
