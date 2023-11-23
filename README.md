@@ -96,23 +96,24 @@ Whereding은 결혼을 준비하는 부부들을 위한 편리하고 효율적�
 <br><br>
 #### 😊 메인페이지 모달 😊 
 &nbsp;&nbsp;&nbsp; - 접속시 모달 팝업 및 쿠키를 이용한 1주일 안보기 기능
-![아이디찾기 및 비밀번호 재설정](https://github.com/whereding/Whereding/blob/main/모달.gif?raw=true)
+![메인페이지 모달](https://github.com/whereding/Whereding/blob/main/모달.gif?raw=true)
 
 <br><br>
 #### 😊 상담예약 & 구매내역 😊
 &nbsp;&nbsp;&nbsp; - 유저가 예약&구매한 내역, API를 통한 배송조회,지도 기능
-![아이디찾기 및 비밀번호 재설정](https://github.com/whereding/Whereding/assets/134485601/51ddb038-f120-4bca-8f6d-70d236519317)
+![상담내역 및 구매내역](https://github.com/whereding/Whereding/assets/134485601/51ddb038-f120-4bca-8f6d-70d236519317)
 
 
 <br><br>
-### 🐹류지완
+### 🐹이원종
 
-#### 😊 메인페이지 😊 
+#### 😊 메인페이지 검색 😊 
+&nbsp;&nbsp;&nbsp; - 원하는 조건을 선택하여 해당 조건에 일치하는 업체 조회
 
-![메인페이지](https://github.com/inumsiki/ticketDdakdae/assets/134485808/2e83cb2d-6f2a-4f20-b888-06751819b575)
+![메인페이지](https://github.com/whereding/Whereding/blob/main/메인검색.gif?raw=true)
 
 <br><br>
-### 😊 상품검색 😊
+### 😊 사이드바 😊
 &nbsp;&nbsp;&nbsp; - 키워드에 해당하는 검색내용 조회
 
 ![상품검색](https://github.com/inumsiki/ticketDdakdae/assets/134485808/aa306ad8-a55a-40fb-9b1f-9e4691ca25fb)
