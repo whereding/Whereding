@@ -138,7 +138,7 @@ Whereding은 결혼을 준비하는 부부들을 위한 편리하고 효율적�
 
 &nbsp;&nbsp;&nbsp; - 업체 상담예약 장바구니 및 상담 예약
 
-![답례품 장바구니](https://github.com/whereding/Whereding/blob/main/답례품%20장바구니.gif?raw=true)
+![예약 장바구니](https://github.com/whereding/Whereding/blob/main/예약장바구니.gif?raw=true)
 
 
 
