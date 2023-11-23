@@ -114,9 +114,9 @@ Whereding은 결혼을 준비하는 부부들을 위한 편리하고 효율적�
 
 <br><br>
 ### 😊 사이드바 😊
-&nbsp;&nbsp;&nbsp; - 키워드에 해당하는 검색내용 조회
+&nbsp;&nbsp;&nbsp; - 사이드바 모달로 장바구니,카카오톡 상담기능 연동
 
-![상품검색](https://github.com/inumsiki/ticketDdakdae/assets/134485808/aa306ad8-a55a-40fb-9b1f-9e4691ca25fb)
+![사이드바](https://github.com/whereding/Whereding/assets/134485601/56ef679e-05ef-4243-ba8b-62e5d3b31c95)
 
 
 <br><br>
