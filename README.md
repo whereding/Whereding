@@ -94,12 +94,12 @@ Whereding은 결혼을 준비하는 부부들을 위한 편리하고 효율적�
 ![카드결제 및 취소](https://github.com/inumsiki/ticketDdakdae/assets/134485601/eca8b346-91ed-4ba8-873d-f897330d4b50)
 
 <br><br>
-#### 😊 아이디찾기 및 비밀번호 재설정 😊 
+#### 😊 메인페이지 모달 😊 
 &nbsp;&nbsp;&nbsp; - 유저의 정보를 이용한 조회로 아이디찾기 및 비밀번호 재설정
 ![아이디찾기 및 비밀번호 재설정](https://github.com/inumsiki/ticketDdakdae/assets/134485808/9b9b37e6-6eda-4370-a225-bf2d7231ecae)
 
 <br><br>
-#### 😊 DB 설계 및 관리 😊
+#### 😊 상담예약 & 구매내역 😊
 <details>
 <summary>접기/펼치기</summary>
 <pre> 
