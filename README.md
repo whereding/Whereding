@@ -162,7 +162,7 @@ Whereding은 결혼을 준비하는 부부들을 위한 편리하고 효율적�
 ### 😊 답례품 목록 및 상세페이지 😊
 &nbsp;&nbsp;&nbsp; - 답례품 제품 목록 및 상세페이지
 
-![사이드바](https://github.com/whereding/Whereding/assets/134485601/56ef679e-05ef-4243-ba8b-62e5d3b31c95)
+![답례품](https://github.com/whereding/Whereding/assets/134485601/98a9e983-01ca-42fb-b3fb-326579e16439)
 
 
 <br><br>
