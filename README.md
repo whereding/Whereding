@@ -100,7 +100,7 @@ Whereding은 결혼을 준비하는 부부들을 위한 편리하고 효율적�
 
 <br><br>
 #### 😊 상담예약 & 구매내역 😊
-&nbsp;&nbsp;&nbsp; - 유저의 정보를 이용한 조회로 아이디찾기 및 비밀번호 재설정
+&nbsp;&nbsp;&nbsp; - 유저가 예약&구매한 내역, API를 통한 배송조회,지도 기능
 ![아이디찾기 및 비밀번호 재설정](https://github.com/whereding/Whereding/assets/134485601/51ddb038-f120-4bca-8f6d-70d236519317)
 
 -- 1순위
