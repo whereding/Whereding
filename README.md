@@ -73,11 +73,12 @@ Whereding은 결혼을 준비하는 부부들을 위한 편리하고 효율적�
 <div style="display:flex; flex-direction:row;">
 
  - 메인화면 (검색기능)
- - 상품 상세페이지
- - 마이페이지
+ - 상품 목록 & 상세 페이지
+ - 마이페이지(구매내역,상담내역)
  - 상품 결제 및 취소
  - 장바구니 / 예약
  - 회원가입 및 로그인
+ - 관리자 페이지
  
 </div>
  
@@ -140,8 +141,41 @@ Whereding은 결혼을 준비하는 부부들을 위한 편리하고 효율적�
 
 ![예약 장바구니](https://github.com/whereding/Whereding/blob/main/예약장바구니.gif?raw=true)
 
+<br><br>
+#### 😊 관리자페이지 - 회원정보 조회 및 수정 😊
+
+&nbsp;&nbsp;&nbsp; - 관리자 기능으로 가입된 회원의 정보 조회 및 수정
+
+![예약 장바구니]()
 
 
+
+<br><br>
+### 🐵양관우
+
+#### 😊 로그인 및 회원가입 😊 
+&nbsp;&nbsp;&nbsp; - 로그인 및 회원가입 ( 소셜로그인 )
+
+![메인페이지](https://github.com/whereding/Whereding/blob/main/메인검색.gif?raw=true)
+
+<br><br>
+### 😊 아이디 & 비밀번호 찾기 😊
+&nbsp;&nbsp;&nbsp; - 이메일 확인을 통한 비밀번호 찾기
+
+![사이드바](https://github.com/whereding/Whereding/assets/134485601/56ef679e-05ef-4243-ba8b-62e5d3b31c95)
+
+<br><br>
+### 😊 답례품 목록 및 상세페이지 😊
+&nbsp;&nbsp;&nbsp; - 답례품 제품 목록 및 상세페이지
+
+![사이드바](https://github.com/whereding/Whereding/assets/134485601/56ef679e-05ef-4243-ba8b-62e5d3b31c95)
+
+
+<br><br>
+### 😊 관리자페이지 - 협력업체 승인 및 거절 😊
+&nbsp;&nbsp;&nbsp; - 관리자페이지에서 협력업체 신청 승인 및 거절
+
+![사이드바](https://github.com/whereding/Whereding/assets/134485601/56ef679e-05ef-4243-ba8b-62e5d3b31c95)
 
 
 
